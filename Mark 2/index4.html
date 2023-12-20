@@ -1,0 +1,161 @@
+<!-- now when i will press the submit button what will be the flow of the logic
+    
+When you press the submit button, the following sequence of events will occur:
+
+The browser will trigger the form's onsubmit event. This is because the submit button is inside a form, and clicking it triggers the form's submission process.
+
+The onsubmit event handler will call the validateForm function because it's specified in the form's onsubmit attribute like this: onsubmit="return validateForm()".
+
+The validateForm function will get the values of the name, email, and message fields from the form.
+
+The function will check if any of these values are empty strings (""). If any of them are, it will show an alert saying "All fields must be filled out" and return false.
+
+If all fields are filled, it will then check if the email is valid. If it's not, it will show an alert saying "Please enter a valid e-mail address" and return false.
+
+If the function returns false at any point, the form submission will be stopped because of the return statement in the onsubmit attribute.
+
+If all checks pass (all fields are filled and the email is valid), the function will end without returning anything. In JavaScript, a function without a return statement implicitly returns undefined, which is a falsy value, but the form will still be submitted because the onsubmit event only prevents submission if the handler function explicitly returns false.
+
+If the function doesn't return false, the form will be submitted as usual. The page will be refreshed, and the form data will be sent to the server specified in the form's action attribute (or to the same page if no action is specified). -->
+
+
+<!-- ************** -->
+<!-- is the submitfeedback() really required here -->
+<!-- The submitFeedback() function in your code is not strictly required for form submission, but it can be useful depending on what you want to do when the form is submitted.
+
+If you want to handle the form submission with JavaScript, for example to send the form data to a server using AJAX, then you would use a function like submitFeedback(). In this case, you would prevent the form from being submitted normally (which would cause the page to reload) by calling event.preventDefault() in your function.
+
+If you just want to validate the form data on the client side and then submit the form normally, you don't need the submitFeedback() function. You can just use the validateForm() function that we discussed earlier.
+
+In your current code, the submitFeedback() function is just getting the form values and not doing anything with them, so it's not very useful. You would need to add more code to send the data to a server or otherwise process it. -->
+
+
+<!-- ************** -->
+<!-- How can I use AJAX to send the form data to a server for processing? -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        form {
+            max-width: 400px;
+            width: 100%;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+    <script>
+        // In the above code, the validateForm function is called when the form is submitted. This function checks if all fields are filled and if the email address is valid. If any of these checks fail, an alert is shown and the form is not submitted.
+        function validateForm() {
+            var name = document.forms["feedbackForm"]["name"].value;
+            var email = document.forms["feedbackForm"]["email"].value;
+            var message = document.forms["feedbackForm"]["message"].value;
+
+            if (name == "" || email == "" || message == "") {
+                alert("All fields must be filled out");
+                return false;
+            }
+
+            var atposition = email.indexOf("@");
+            var dotposition = email.lastIndexOf(".");
+            if (atposition < 1 || dotposition < atposition + 2 || dotposition + 2 >= email.length) {
+                alert("Please enter a valid e-mail address");
+                return false;
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <!-- In the above code, onsubmit="return validateForm()" means that when the form is submitted, the validateForm function will be called. If the function returns false, the form submission will be stopped. If it returns true, the form will be submitted as usual. -->
+    <form id="feedbackForm" onsubmit="return validateForm()">
+        <h1>Feedback Form </h1>
+
+        <p>Let us know what you think about our website!</p>
+
+        <hr>
+
+        <label for=""></label>
+
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Your Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Your Feedback:</label>
+        <textarea id="message" name="message" rows="4" required></textarea>
+
+        <button type="button" onclick="validateForm()">Submit Feedback</button>
+    </form>
+
+    <script>
+        
+
+        function submitFeedback() {
+            // You can add AJAX code here to send feedback to the server
+            // For simplicity, we'll just log the feedback to the console
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            console.log('Feedback Submitted:');
+            console.log('Name: ' + name);
+            console.log('Email: ' + email);
+            console.log('Message: ' + message);
+
+            // Reset form fields after submission
+            document.getElementById('name').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('message').value = '';
+
+            alert('Feedback submitted successfully!');
+        }
+    </script>
+
+</body>
+</html>

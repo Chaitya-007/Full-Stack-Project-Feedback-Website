@@ -1,0 +1,162 @@
+<!-- Modifications in form tag and button tag-->
+<!-- 
+How can I use AJAX to send the form data to a server for processing? 
+You can use the fetch API to send the form data to a server using AJAX. Here's how you can modify your submitFeedback function to do this:
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+      }
+
+      form {
+        max-width: 400px;
+        width: 100%;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+      }
+
+      label {
+        display: block;
+        margin-bottom: 8px;
+      }
+
+      input,
+      textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+    </style>
+    <script>
+      function validateForm() {
+        var name = document.forms["feedbackForm"]["name"].value;
+        var email = document.forms["feedbackForm"]["email"].value;
+        var message = document.forms["feedbackForm"]["message"].value;
+
+        if (name == "" || email == "" || message == "") {
+          alert("All fields must be filled out");
+          return false;
+        }
+
+        var atposition = email.indexOf("@");
+        var dotposition = email.lastIndexOf(".");
+        if (
+          atposition < 1 ||
+          dotposition < atposition + 2 ||
+          dotposition + 2 >= email.length
+        ) {
+          alert("Please enter a valid e-mail address");
+          return false;
+        }
+
+        return true;
+      }
+
+      function submitFeedback(event) {
+        event.preventDefault(); // prevent the form from submitting normally
+
+        if (!validateForm()) {
+          return;
+        }
+
+        var name = document.forms["feedbackForm"]["name"].value;
+        var email = document.forms["feedbackForm"]["email"].value;
+        var message = document.forms["feedbackForm"]["message"].value;
+
+        // create a FormData object from the form
+        var formData = new FormData();
+        formData.append("name", name);
+        formData.append("email", email);
+        formData.append("message", message);
+
+        // send the form data to the server using fetch
+        fetch("http://your-server-url.com/submit-feedback", {
+          method: "POST",
+          body: formData,
+        })
+          // .then(response => response.json())
+          // .then(data => console.log(data))
+          // .catch((error) => {
+          //   console.error('Error:', error);
+          // });
+
+          // The fetch function returns a Promise that resolves to the server's response. You can use the then method to access the response data. The response data is a JSON object that contains the form data that was sent to the server. You can use the catch method to handle any errors that occur while sending the form data to the server.
+
+          //             In the above code, alert('Form submitted successfully'); will display a popup message to the user saying "Form submitted successfully". You can replace this with any other way you want to display the success message.
+
+          // Please note that this will display the success message regardless of the server's response. If you want to display the success message only when the server indicates that the form was processed successfully, you will need to check the server's response in the .then(data => {...}) part and display the success message accordingly.
+
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Network response was not ok");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            console.log(data);
+            alert("Form submitted successfully");
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+          });
+      }
+      // In the above code, http://your-server-url.com/submit-feedback should be replaced with the actual URL of your server where you want to send the form data. The server should be set up to accept a POST request at this URL and handle the form data. The fetch function sends the form data to the server and then logs the server's response to the console.
+    </script>
+  </head>
+  <body>
+    <!-- Modified below line -->
+    <form id="feedbackForm" onsubmit="submitFeedback(event)">
+      <h1>Feedback Form</h1>
+
+      <p>Let us know what you think about our website!</p>
+
+      <hr />
+
+      <label for=""></label>
+
+      <label for="name">Your Name:</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Your Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="message">Your Feedback:</label>
+      <textarea id="message" name="message" rows="4" required></textarea>
+
+      <!-- Modified below line -->
+      <button type="submit">Submit Feedback</button>
+    </form>
+  </body>
+</html>

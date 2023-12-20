@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=7">
+    <title>Forms</title>
+</head>
+<body>
+    <form action="results.html" method="get" enctype="multipart/form-data">
+        <div>
+            <label for="name">Your Name:</label>
+            <input type="text" name="name" id="name" placeholder="Enter username" required>
+        </div>
+        <div>
+            <label for="email">Your Email:</label>
+            <input type="email" name="email" id="email" placeholder="Enter email" required></input>
+        </div>
+        <div>
+            <label for="age">Age :</label>
+            <input type="number" name="age" id="age" min="1" max="200" step="5">
+        </div>
+        <div>
+            <label for="date">Date:</label>
+            <input type="date" name="date" id="date" min="2004-05-17" max="2012-05-17">
+        </div>
+        <div>
+            <label for="bannaa">Bananna:</label>
+            <input type="checkbox" name="bannaa" id="bannaa">
+        </div>
+        <div>
+            <label for="apple">Apple:</label>
+            <input type="checkbox" name="apple" id="apple">
+        </div>
+        <div>
+            <label for="time">Time:</label>
+            <input type="time" name="time" id="time" min="09:00" max="18:00">
+        </div>
+        <div>
+            <label for="color">Color:</label>
+            <input type="color" name="color" id="color">
+        </div>
+        <div>
+            Gender:
+            <br>
+            <label for="male">Male</label>
+            <input type="radio" name="gender" id="male" value="male">
+        </div>
+        <div>
+            <label for="female">Female</label>
+            <input type="radio" name="gender" id="female" value="for">
+        </div>
+        <div>
+            <label for="country">Country</label>
+            <select name="country" id="country" multiple>
+                <option value="usa">USA</option>
+                <option label="India" value="india"></option>
+            </select>
+        </div>
+        <div>
+            <label for="bio">BIO:</label>
+            <textarea name="bio" id="bio"></textarea>
+        </div>
+        <input type="hidden" name="hidden" value="hi">
+            <div>
+                <label for="file">File:</label>
+                <input type="file" name="file" id="file">
+            </div>
+            <div>
+                <label for="phone">Phone:</label>
+                <input type="tel" name="phone" id="phone">
+            </div>
+            <div>
+                <label for="url">URL</label>
+                <input type="url" name="url" id="url">
+            </div>
+        <div>
+            <label>
+                Your Password:
+            <input type="password" name="password" required>
+        </label>
+        </div>
+        <div>
+            <label>
+                Confirm Password:
+            <input type="password" name="confirm_password" required>
+        </div>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
