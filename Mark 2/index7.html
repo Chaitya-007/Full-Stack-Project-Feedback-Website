@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Police Service Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            height: 100px;
+            padding: 8px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Police Service Feedback Form</h2>
+<form action="#" method="post">
+    <label for="overallSatisfaction">1. Overall Satisfaction:</label>
+    <input type="number" name="overallSatisfaction" min="1" max="5" required>
+
+    <label for="experienceComments">2. Describe your experience:</label>
+    <textarea name="experienceComments" required></textarea>
+
+    <label for="incidentDate">3. Date and time of the incident:</label>
+    <input type="datetime-local" name="incidentDate" required>
+
+    <label for="incidentLocation">4. Location of the incident:</label>
+    <input type="text" name="incidentLocation" required>
+
+    <label for="officerBadge">5. Officer's badge/identification number:</label>
+    <input type="text" name="officerBadge">
+
+    <label for="officerName">6. Officer's name (if known):</label>
+    <input type="text" name="officerName">
+
+    <label for="reasonForInteraction">7. Reason for interaction:</label>
+    <input type="text" name="reasonForInteraction" required>
+
+    <label for="typeOfService">8. Type of service received:</label>
+    <input type="text" name="typeOfService" required>
+
+    <label for="responseTime">9. Response time:</label>
+    <input type="text" name="responseTime" required>
+
+    <label for="communicationClarity">10. Communication clarity:</label>
+    <input type="text" name="communicationClarity" required>
+
+    <label for="officerDemeanor">11. Officer's demeanor:</label>
+    <input type="text" name="officerDemeanor" required>
+
+    <label for="respectfulness">12. Respectfulness:</label>
+    <input type="text" name="respectfulness" required>
+
+    <label for="followUpActions">13. Follow-up actions taken:</label>
+    <input type="text" name="followUpActions">
+
+    <label for="demographicInfo">14. Demographic information (optional):</label>
+    <input type="text" name="demographicInfo">
+
+    <label for="contactInfo">15. Anonymous or Contact Information:</label>
+    <input type="text" name="contactInfo" placeholder="Optional">
+
+    <button type="submit">Submit Feedback</button>
+</form>
+
+</body>
+</html>

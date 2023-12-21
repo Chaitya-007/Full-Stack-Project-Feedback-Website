@@ -7,6 +7,7 @@
     <style>
       body {
         font-family: Arial, sans-serif;
+        font-weight: bold; /*font-weight property specifies the weight of a font. added by me*/
         margin: 0;
         padding: 0;
         display: flex;
@@ -14,41 +15,65 @@
         justify-content: center;
         /* height: 100vh; */
         background-color: #f4f4f4;
+        background-image: url("https://images.unsplash.com/photo-1532375810709-75b1da00537c?q=80&w=2076&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+        /* background-image: url("https://thedailyguardian.com/wp-content/uploads/2020/08/police.png "); */
+        background-size: cover;
+        background-position: center center;
       }
 
       form {
-        max-width: 400px;
+        max-width: 600px; 
         width: 100%;
         padding: 20px;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
+        padding-bottom: 6%;
+        /* background-color: #fff; */
+        /* background-color: blueviolet; */
+        box-shadow: 50 0 10px rgba(0, 0, 0, 0.1);
+        /* box-shadow: h-offset v-offset blur spread color; */
+        /* 
+The CSS box-shadow property is used to add a shadow effect to an element. The syntax for box-shadow is as follows:
+h-offset: 0 - There is no horizontal shadow offset.
+v-offset: 0 - There is no vertical shadow offset.
+blur: 10px - The shadow has a blur radius of 10 pixels, making it a bit softer.
+spread: Not specified - The shadow will not spread from its original size.
+color: rgba(0, 0, 0, 0.1) - The shadow color is a semi-transparent black, where the RGB values are (0, 0, 0), and the alpha (transparency) value is 0.1. */
+        border-radius: 8px; 
       }
 
+     
       label {
         display: block;
         margin-bottom: 8px;
       }
 
+       
       input,
       textarea {
         width: 100%;
         padding: 8px;
         margin-bottom: 16px;
         box-sizing: border-box;
-        border: 1px solid #ccc;
+        /* border: 1px solid #ccc; */
+        border: 2px solid black;
         border-radius: 4px;
       }
 
+      
       button {
         background-color: #4caf50;
         color: #fff;
         padding: 10px 15px;
+        /* This shorthand syntax is specifying the padding for each side of the element in the following order:
+
+Top and bottom: 10 pixels
+Left and right: 15 pixels */
         border: none;
         border-radius: 4px;
         cursor: pointer;
+        font-weight: bold;
       }
 
+      
       button:hover {
         background-color: #45a049;
       }
@@ -59,8 +84,29 @@
       <h1>Police Feedback</h1>
 
       <div>
+        <label for="name">1. Your Name:(If you want to disclose)</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <div>
+        <label for="email">2. Your Email:(If you want to disclose)</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email here"
+          required
+        />
+      </div>
+
+      <div>
         <label for="rating">
-          Overall Satisfaction with Police Service(1-5) :
+          3. Overall Satisfaction with Police Service(1-5) :
         </label>
         <input
           type="number"
@@ -75,42 +121,25 @@
       </div>
 
       <div>
-        <label for="name">Your Name:</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Enter your full name"
-          required
-        />
-      </div>
-
-      <div>
-        <label for="email">Your Email:</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="Enter your email here"
-          required
-        />
+        <label for="improvement">4. Is there anything specific that could have improved your experience?</label>
+        <input type="text" name="improvement" id="improvement" placeholder="Enter your comment here...">
       </div>
 
       <div>
         <label>Incident Details</label>
 
         <div>
-          <label for="date">Incident Date :</label>
+          <label for="date">5. Date of Incident :</label>
           <input type="date" name="date" id="date" required />
         </div>
 
         <div>
-          <label for="time">Incident Time(24 hour system) :</label>
+          <label for="time">6. Time of Incident(24 hour system) :</label>
           <input type="time" name="time" id="time" required />
         </div>
 
         <div>
-          <label for="location">Incident Location:</label>
+          <label for="location">7. Location of the incident:</label>
           <input
             type="text"
             id="location"
@@ -122,25 +151,87 @@
       </div>
 
       <div>
-        <label>Officer's Information(if applicable):</label>
+        <label> Officer's Information(if applicable):</label>
+
         <div>
-            <label for="officerName">Officer's Name(if known):</label>
-            <input
-                type="text"
-                id="officerName"
-                name="officerName"
-                placeholder="Enter the officer's name"
-            />
-        </div>
+          <label for="officerBadge">8. Officer's Badge/Identification Number(if known):</label>
+          <input
+              type="text"
+              id="officerBadge"
+              name="officerBadge"
+              placeholder="Enter the officer's badge number"
+          />
+    </div>
+
         <div>
-            <label for="officerBadge">Officer's Badge/Identification Number(if known):</label>
-            <input
-                type="text"
-                id="officerBadge"
-                name="officerBadge"
-                placeholder="Enter the officer's badge number"
-            />
+          <label for="officerName">9. Officer's Name(if known):</label>
+          <input
+              type="text"
+              id="officerName"
+              name="officerName"
+              placeholder="Enter the officer's name"
+          />
       </div>
+      </div>
+
+
+        <div>
+          <label>Nature of Interaction:</label>
+          <div>
+            <label for="reasonForInteraction">10. Reason for interaction:</label>
+            <input type="text" name="reasonForInteraction" id="reasonForInteraction" placeholder="Enter your reason here" required>
+          </div>
+    <div>
+      <label for="typeOfService">11. Type of service received:</label>
+    <input type="text" name="typeOfService" id="typeOfService" placeholder="Enter your comment here" required>
+    </div>
+    
+        </div>
+        
+
+        <div>
+          <label>Response Time and Communication:</label>
+          <div>
+            <label for="responseTime">12. Response time:</label>
+    <input type="text" name="responseTime" id="responseTime" placeholder="Enter your comment here" required>
+          </div>
+          
+          <div>
+            <label for="communicationClarity">13. Communication clarity:</label>
+    <input type="text" name="communicationClarity" id="communicationClarity" placeholder="Enter your response here" required>
+          </div>
+        </div>
+      
+        <div>
+          <label>Professionalism and Conduct:</label>
+          <div>
+            <label for="officerDemeanor">14. Officer's demeanor:</label>
+    <input type="text" name="officerDemeanor" id="officerDemeanor" placeholder="Enter your comment here" required>
+          </div>
+
+          <div>
+            <label for="respectfulness">15. Respectfulness:</label>
+    <input type="text" name="respectfulness" id="respectfulness" placeholder="Enter your comment here" required>
+          </div>
+        </div>
+    
+
+    <div>
+      <label for="followUpActions">16. Follow-up actions taken:</label>
+    <input type="text" name="followUpActions" placeholder="Enter the actions taken here" id="followUpActions" required>
+    </div>
+
+    
+<div>
+  <label for="demographicInfo">17. Demographic information (optional):</label>
+  <input type="text" name="demographicInfo" id="demographicInfo" placeholder="Optional">
+</div>
+    
+<div>
+  <label for="contactInfo">18. Anonymous or Contact Information:</label>
+  <input type="text" name="contactInfo" id="contactInfo" placeholder="Optional">
+</div>
+
 
       <div>
         <label for="message">Your Feedback:</label>
@@ -153,7 +244,19 @@
         ></textarea>
       </div>
 
-      <button type="button" onclick="submitFeedback()">Submit Feedback</button>
+       <div>
+        <!-- <button type="button" onclick="submitFeedback()">Submit Feedback</button> -->
+        <button type="submit">Submit Feedback</button>
+        <button type="reset">Reset Feedback</button>
+      </div>
+
+      
+
+      <!-- <div>
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" min="18" max="100" step="1" placeholder="Enter your age here" required>
+      </div> -->
+      
     </form>
 
     <script>
