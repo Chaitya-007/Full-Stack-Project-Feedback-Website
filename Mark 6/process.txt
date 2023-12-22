@@ -1,0 +1,15 @@
+npm init -y  ===> package.json
+
+npm i express ===> node_modules[folder created] + package-lock.json
+
+npm i mongoose ==> moongose dependencies get installed
+
+url => https://youtu.be/lEkZbk2c1GE?si=OTHf0999idmxKuMw
+
+create folder => model 
+in that       => user.js
+
+npm i nodemon -D => install nodemon
+and follow the below video
+
+url =>https://youtu.be/nQdCUcMMds4

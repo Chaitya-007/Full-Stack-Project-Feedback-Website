@@ -1,0 +1,33 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form
+{
+    background-color: violet;
+    max-width: 400px;
+    padding: 20px;
+    margin-top: 150px;
+    border-radius: 8px;
+    
+}
+
+input
+{
+    display: block;
+    margin-bottom: 20px;
+    border-radius: 8px;
+    background-color: rgb(254, 255, 255);
+}
+
+button
+{
+    background-color: greenyellow;
+    border-radius: 8px;
+}

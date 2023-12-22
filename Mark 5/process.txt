@@ -1,0 +1,10 @@
+npm init
+
+npm install express
+
+create app.js[Can name whatever you want]
+
+node app.js to run server
+
+refered this video
+https://youtu.be/vegqqDjulKg?si=NMOpblon0Ed8FPEz
