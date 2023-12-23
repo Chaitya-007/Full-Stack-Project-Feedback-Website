@@ -13,3 +13,6 @@ npm i nodemon -D => install nodemon
 and follow the below video
 
 url =>https://youtu.be/nQdCUcMMds4
+
+npm i fs --save => to send file like index.html
+if we use --save  it will be saved in package. json inside dependencies.
