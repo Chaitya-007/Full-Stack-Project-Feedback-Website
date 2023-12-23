@@ -1,17 +1,17 @@
 const fs = require("node:fs"); // Importing fs module
-const expresss = require("express"); // Importing express
+const express = require("express"); // Importing express
 const mongoose = require("mongoose");   // Importing mongoose
 
-const app = expresss(); // Creating an express app
+const app = express(); // Creating an express app
 const port = process.env.PORT || 5000; // Setting up the port
 
 const User = require("./model/user") // Importing the user model
 
 // Middleware
-app.use(expresss.urlencoded({ extended: true })); // For parsing the data
+app.use(express.urlencoded({ extended: true })); // For parsing the data
 // Yeh karna hoga agar hum store kar rahe hai data
 
-app.use(expresss.static("public")); // For serving static files
+app.use(express.static("public")); // For serving static files
 
 mongoose.connect("mongodb://127.0.0.1:27017/UserDataDB").then(() => {
     console.log("Database connected");
