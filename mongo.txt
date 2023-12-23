@@ -1,0 +1,9 @@
+
+C:\Program Files\MongoDB\Server\7.0\bin
+
+C:\Program Files\MongoDB\Server\7.0\data\
+
+password (atlas): chaitya007
+
+mongodb+srv://chaitya:<password>@atlascluster.7dddwr1.mongodb.net/?retryWrites=true&w=majority
+
