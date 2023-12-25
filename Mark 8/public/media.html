@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Social Media Example</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+    }
+
+    .post {
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+
+    .user {
+      font-weight: bold;
+      color: #333;
+    }
+
+    .post-content {
+      margin-top: 10px;
+    }
+
+    .comment {
+      margin-top: 10px;
+      padding: 5px;
+      background-color: #eee;
+    }
+
+    .comment-form {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Simple Social Media</h1>
+  </header>
+
+  <main>
+    <div class="post">
+      <div class="user">User123</div>
+      <div class="post-content">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed eget justo sit amet velit vestibulum consequat.
+      </div>
+      <div class="comment">
+        <div class="user">Commenter1</div>
+        Comment: Great post!
+      </div>
+      <div class="comment">
+        <div class="user">Commenter2</div>
+        Comment: Nice content!
+      </div>
+      <div class="comment-form">
+        <label for="commentInput">Add a comment:</label>
+        <input type="text" id="commentInput" placeholder="Write a comment...">
+        <button>Add Comment</button>
+      </div>
+    </div>
+
+    <!-- More posts go here -->
+  </main>
+
+</body>
+</html>

@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <form action="/formPost" id="feedbackForm" method="post">
+      <h1>Police Feedback</h1>
+
+      <div>
+        <label for="name">1. Your Name:(If you want to disclose)</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your full name"
+        />
+      </div>
+
+      <div>
+        <label for="email">2. Your Email:(If you want to disclose)</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email here"
+          required
+        />
+      </div>
+
+      <div>
+        <label for="phone">3. Please enter your phone numeber:</label>
+        <input type="tel" name="phone" id="phone" placeholder="Enter your phone number here" required>
+      </div>
+
+      <div>
+        <label for="rating">
+          4. Overall Satisfaction with Police Service(1-5) :
+        </label>
+        <!-- <input
+          type="number"
+          name="rating"
+          id="rating"
+          min="1"
+          max="5"
+          step="1"
+          placeholder="Enter a number between 1 and 5"
+          required
+        /> -->
+        <select name="rating" id="rating">
+            <option value="" disabled selected>Select an option</option>
+            <option value="5">5 - Very Satisfied</option>
+            <option value="4">4 - Satisfied</option>
+            <option value="3">3 - Neutral</option>
+            <option value="2">2 - Dissatisfied</option>
+            <option value="1">1 - Very Dissatisfied</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="improvement">5. Is there anything specific that could have improved your experience?</label>
+        <input type="text" name="improvement" id="improvement" placeholder="Enter your comment here...">
+      </div>
+
+      <div>
+        <label>Incident Details</label>
+
+        <div>
+          <label for="date">6. Date of Incident :</label>
+          <input type="date" name="date" id="date" max="" required />
+        </div>
+
+        <div>
+          <label for="time">7. Time of Incident(24 hour system) :</label>
+          <input type="time" name="time" id="time" required />
+        </div>
+
+        <div>
+          <label for="location">8. Location of the incident:</label>
+          <input
+            type="text"
+            id="location"
+            name="location"
+            placeholder="Enter the location of the incident"
+            required
+          />
+        </div>
+      </div>
+
+      <div>
+        <label> Officer's Information(if applicable):</label>
+
+        <div>
+          <label for="officerBadge">9. Officer's Badge/Identification Number(if known):</label>
+          <input
+              type="text"
+              id="officerBadge"
+              name="officerBadge"
+              placeholder="Enter the officer's badge number"
+          />
+    </div>
+
+        <div>
+          <label for="officerName">10. Officer's Name(if known):</label>
+          <input
+              type="text"
+              id="officerName"
+              name="officerName"
+              placeholder="Enter the officer's name"
+          />
+      </div>
+      </div>
+
+
+        <div>
+          <label>Nature of Interaction:</label>
+          <div>
+            <label for="reasonForInteraction">11. Reason for interaction:</label>
+            <input type="text" name="reasonForInteraction" id="reasonForInteraction" placeholder="Enter your reason here" required>
+          </div>
+    <div>
+      <label for="typeOfService">12. Type of service received:</label>
+    <input type="text" name="typeOfService" id="typeOfService" placeholder="Enter your comment here" required>
+    </div>
+    
+        </div>
+        
+
+        <div>
+          <label>Response Time and Communication:</label>
+          <div>
+            <label for="responseTime">13. Response time:</label>
+    <input type="text" name="responseTime" id="responseTime" placeholder="Enter your comment here" required>
+          </div>
+          
+          <div>
+            <label for="communicationClarity">14. Communication clarity:</label>
+    <input type="text" name="communicationClarity" id="communicationClarity" placeholder="Enter your response here" required>
+          </div>
+        </div>
+      
+        <div>
+          <label>Professionalism and Conduct:</label>
+          <div>
+            <label for="officerDemeanor">15. Officer's demeanor:</label>
+    <input type="text" name="officerDemeanor" id="officerDemeanor" placeholder="Enter your comment here" required>
+          </div>
+
+          <div>
+            <label for="respectfulness">16. Respectfulness:</label>
+    <input type="text" name="respectfulness" id="respectfulness" placeholder="Enter your comment here" required>
+          </div>
+        </div>
+    
+
+    <div>
+      <label for="followUpActions">17. Follow-up actions taken:</label>
+    <input type="text" name="followUpActions" placeholder="Enter the actions taken here" id="followUpActions" required>
+    </div>
+
+    
+<div>
+  <label for="demographicInfo">18. Demographic information (optional):</label>
+  <input type="text" name="demographicInfo" id="demographicInfo" placeholder="Optional">
+</div>
+    
+<div>
+  <label for="contactInfo">19. Anonymous or Contact Information:</label>
+  <input type="text" name="contactInfo" id="contactInfo" placeholder="Optional">
+</div>
+
+<div>
+  <label for="happyornot">20. Are you satisfied with the service:</label>
+  <select name="happyornot" id="happyornot">
+    <option value="" disabled selected>Select an option</option>
+    <option value="Happy">Yes</option>
+    <option value="Nothappy">No</option>
+</select>
+</div>
+
+
+      <div>
+        <label for="message">Your Feedback:</label>
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          placeholder="Describe your experience..."
+          required
+        ></textarea>
+      </div>
+
+       <div>
+        <!-- <button type="button" onclick="submitFeedback()">Submit Feedback</button> -->
+        <button type="submit">Submit Feedback</button>
+        <button type="reset">Reset Feedback</button>
+      </div>
+
+      
+
+      <!-- <div>
+        <label for="age">Age</label>
+        <input type="number" name="age" id="age" min="18" max="100" step="1" placeholder="Enter your age here" required>
+      </div> -->
+      
+    </form>
+
+    <script>
+
+    // Get today's date in the format YYYY-MM-DD
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); // January is 0!
+    var yyyy = today.getFullYear();
+
+    today = yyyy + '-' + mm + '-' + dd;
+
+    // Set the maximum date for the date input
+    document.getElementById('date').max = today;
+  
+
+      function submitFeedback() {
+        // You can add AJAX code here to send feedback to the server
+        // For simplicity, we'll just log the feedback to the console
+        const name = document.getElementById("name").value;
+        const email = document.getElementById("email").value;
+        const message = document.getElementById("message").value;
+
+        console.log("Feedback Submitted:");
+        console.log("Name: " + name);
+        console.log("Email: " + email);
+        console.log("Message: " + message);
+
+        // Reset form fields after submission
+        document.getElementById("name").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("message").value = "";
+
+        alert("Feedback submitted successfully!");
+      }
+    </script>
+    <!-- <script async='async' src='//code.tidio.co/dq699ks0spspilmp7wdqu4lxjqdhy7xk.js'></script> -->
+  </body>
+</html> 
+
+
